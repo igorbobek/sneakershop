@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Product</title>
+    <link href="/webjars/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<div id="container" class="container">
+    <div th:replace="template :: header_menu"></div>
+    <div style="width:50%; margin: auto; text-align: center">
+        <h1>Вход</h1>
+        <p th:if="${param.error}" class="error">
+            Bad Credentials
+        </p>
+        <span th:text="${error != null} ? ${error} : ''">someValue</span>
+        <form th:action="@{/login}" method="POST">
+            User Name : <input type="text" name="name" class="form-control"/> <br/><br/>
+            Password: <input type="password" name="password" class="form-control"/> <br/><br/>
+            <input class="btn btn-primary" type="submit" value="Login"/>
+            <a href="/signup" class="btn btn-default">Signup</a>
+        </form>
+    </div>
+</div>
+</body>
+</html>
